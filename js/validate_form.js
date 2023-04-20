@@ -21,12 +21,12 @@ window.addEventListener('load', () => {
         }
     ], function (errores, evento) {
         if (errores.length) {
-            let mensaje = '';
-            let nombre = $('#nombre');
-            let apellido = $('#apellido');
-            let telefono = $('#telefono');
-            let email = $('#email');
-            let consulta = $('#mensaje');
+            var mensaje = '';
+            var nombre = $('#nombre');
+            var apellido = $('#apellido');
+            var telefono = $('#telefono');
+            var email = $('#email');
+            var consulta = $('#mensaje');
 
             errores.forEach(function (campo, indice, arreglo) {
                 mensaje += `${campo.message} <br/>`
@@ -44,7 +44,10 @@ window.addEventListener('load', () => {
                 closeOnClickOutside: true,
                 timer: 7000
             });
+            let form = $('#registrarDatos')[0];
+            $(form).trigger("reset");
 
+            movPag.css("margin-left", "0%");
         }
     })
 });

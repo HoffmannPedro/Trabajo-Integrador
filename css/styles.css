@@ -337,6 +337,15 @@ textarea:focus {
     }
 }
 
+@media (max-width: 320px) {
+
+    .num::before,
+    .num::after {
+        width: 60px;
+        right: -65px;
+    }
+}
+
 @media (max-width: 280px) {
 
     .num::before,
