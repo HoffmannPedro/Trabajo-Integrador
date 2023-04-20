@@ -163,6 +163,10 @@ img {
     }
 }
 
+.titulo h2 {
+    font-size: 35px;
+}
+
 .formulario {
     width: 100%;
     overflow: hidden;
