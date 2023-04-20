@@ -35,6 +35,7 @@ window.addEventListener('load', () => {
             document.querySelector('#aviso-error').innerHTML = mensaje;
         } else {
             evento.preventDefault();
+            document.querySelector('#aviso-error').innerHTML = "";
             swal({
                 title: '¡Muchas gracias!',
                 text: 'Ya recibimos tu consulta, en la brevedad nos pondremos en contacto con vos',
@@ -43,6 +44,7 @@ window.addEventListener('load', () => {
                 closeOnClickOutside: true,
                 timer: 7000
             });
+
         }
     })
 });
