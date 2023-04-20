@@ -20,6 +20,9 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.6.4.js"
+		integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/3274f42bd5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -88,41 +91,93 @@
 		</div>
 	</section>
 
-	<section class="container" id="contacto">
-		<form action="">
-			<div class="row justify-content-center mt-4">
-				<div class="col-sm-6 justify-content-center p0 w80 caja_inputs">
-					<div class="col-sm-12 contacto justify-content-center">
-						<h2>Contáctanos</h2>
+	<section class="contenedor_form" id="contacto">
+		<div class="formulario">
+			<div class="titulo">
+				<h2>Contáctanos</h2>
+			</div>
+
+			<div class="barra_progreso">
+				<div class="paso">
+					<p>Nombre</p>
+					<div class="num">
+						<span>1</span>
 					</div>
-					<input class="col-sm-12 ps-2 my-2" type="text" name="nombre" id="nombre" placeholder="Nombre">
-					<input class="col-sm-12 ps-2 my-2" type="tel" name="telefono" id="telefono" placeholder="Teléfono">
+					<div class="check fas fa-check"></div>
+				</div>
+				<div class="paso">
+					<p>Contacto</p>
+					<div class="num">
+						<span>2</span>
+					</div>
+					<div class="check fas fa-check"></div>
+				</div>
+				<div class="paso">
+					<p>Consulta</p>
+					<div class="num">
+						<span>3</span>
+					</div>
+					<div class="check fas fa-check"></div>
 				</div>
 			</div>
-			<div class="row justify-content-center">
-				<div class="col-sm-6 p0 w80 caja_inputs">
-					<input class="col-sm-12 ps-2 my-2" type="text" name="apellido" id="apellido" placeholder="Apellido">
-					<input class="col-sm-12 ps-2 my-2" type="email" name="email" id="email" placeholder="Email">
+			<b class="aviso-error" id="aviso-error"></b>
+			<form action="#" method="post">
+				<!-- Pagina 1 -->
+				<div class="pagina movPag">
+					<div class="paso_pagina">
+						<div class="campo">
+							<input type="text" name="nombre" id="nombre" placeholder="Nombre">
+							<b class="error" id="name-error">
+							</b>
+						</div>
+						<div class="campo">
+							<input type="text" name="apellido" id="apellido" placeholder="Apellido">
+							<b class="error" id="apellido-error"></b>
+						</div>
+						<div class="campo btns justify-content-end">
+							<button type="button" class="btn btn-danger boton siguiente">Siguiente</button>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-sm-6 p0 w80 caja_inputs">
-					<textarea class="col-sm-12 ps-2 my-2 mb-4" name="mensaje" id="mensaje" rows="7"
-						placeholder="Mensaje.."></textarea>
+				<!-- Pagina 2 -->
+				<div class="pagina">
+					<div class="paso_pagina">
+						<div class="campo">
+							<input type="tel" name="telefono" id="telefono" placeholder="Teléfono">
+						</div>
+						<div class="campo">
+							<input type="email" name="email" id="email" placeholder="Email">
+						</div>
+						<div class="campo btns justify-content-between">
+							<button type="button" class="btn btn-danger boton atras1">Atrás</button>
+							<button type="button" class="btn btn-danger boton siguiente3">Siguiente</button>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="boton justify-content-center mb-5">
-					<button class="btn btn-danger">Enviar</button>
+				<!-- Pagina 3 -->
+				<div class="pagina">
+					<div class="paso_pagina">
+						<div class="campo campo_textarea">
+							<textarea name="mensaje" id="mensaje" rows="7" placeholder="Mensaje.."></textarea>
+						</div>
+						<div class="campo btns justify-content-between">
+							<button type="button" class="btn btn-danger boton atras2">Atrás</button>
+							<button type="submit" class="btn btn-danger boton enviar">Enviar</button>
+						</div>
+					</div>
 				</div>
-			</div>
-		</form>
+
+		</div>
 	</section>
 	<footer class="bg-dark text-center py-3">
 		<div class="container">
 			<p>© 2023 Pedro Hoffmann | Desarrollo web</p>
 		</div>
 	</footer>
+
+
+	<script src="/js/movimiento.js"></script>
+
 </body>
 
 </html>
