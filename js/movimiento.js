@@ -8,7 +8,6 @@ $(document).ready(function () {
     const btn_atras2 = $('.atras2');
     const btn_enviar = $('.enviar');
 
-    const texto_progreso = $('.paso p');
     const check_progreso = $('.paso .check');
     const num = $('.paso .num');
 
@@ -16,24 +15,11 @@ $(document).ready(function () {
     let cont = 1;
 
     btn_adelante2.on("click", function (event) {
-
-        let nombre = $('#nombre').val();
-        let apellido = $('#apellido').val();
-
-        if (nombre == "" || apellido == "") {
-            $('#name-error').text("*");
-            $('#apellido-error').text("*");
-            $('#aviso-error').text("Los campos con * son obligatorios");
-        } else {
-            $('#name-error').text("");
-            $('#apellido-error').text("");
-            $('#aviso-error').text("");
-            event.preventDefault();
-            movPag.css("margin-left", "-33.3%");
-            num.eq(cont - 1).addClass('active');
-            check_progreso.eq(cont - 1).addClass('active');
-            cont += 1;
-        }
+        event.preventDefault();
+        movPag.css("margin-left", "-33.3%");
+        num.eq(cont - 1).addClass('active');
+        check_progreso.eq(cont - 1).addClass('active');
+        cont += 1;
 
     });
 
@@ -61,10 +47,27 @@ $(document).ready(function () {
         cont -= 1;
     });
 
-    btn_enviar.on("click", function (event) {
-        event.preventDefault();
-    });
     // ----------------------------------------------
 
+    $("#btnExportarPDF").click(function () {
+        // Obtener los valores de los inputs a mostrar en el PDF"
+        var nombre = $("#nombre").val();
+        var apellido = $("#apellido").val();
+        var telefono = $("#telefono").val();
+        var email = $("#email").val();
+        var mensaje = $("#mensaje").val();
+
+        // Concatenar el contenido
+        var contenidoFinal = `Nombre: ${nombre}</br>Apellido: ${apellido}</br>Telefono: ${telefono}</br>Email: ${email}</br>Consulta: ${mensaje}`;
+
+        // Crear un objeto jsPDF
+        var pdf = new jsPDF();
+
+        // Agregar el contenido final al PDF
+        pdf.fromHTML(contenidoFinal, 15, 15);
+
+        // Descargar el archivo PDF
+        pdf.save("formulario.pdf");
+    });
 
 });
