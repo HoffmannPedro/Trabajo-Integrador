@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    // Movimiento de formulario
+    // Movimiento de formulario y animacion de Check
+
     const movPag = $('.movPag');
     const btn_adelante2 = $('.siguiente');
 
@@ -15,11 +16,14 @@ $(document).ready(function () {
     let cont = 1;
 
     btn_adelante2.on("click", function (event) {
-        event.preventDefault();
-        movPag.css("margin-left", "-33.3%");
-        num.eq(cont - 1).addClass('active');
-        check_progreso.eq(cont - 1).addClass('active');
-        cont += 1;
+        if ($('#nombre').val() !== "" && $('#apellido').val() !== "") {
+            event.preventDefault();
+            movPag.css("margin-left", "-33.3%");
+            num.eq(cont - 1).addClass('active');
+            check_progreso.eq(cont - 1).addClass('active');
+            cont += 1;
+
+        }
 
     });
 
@@ -32,11 +36,13 @@ $(document).ready(function () {
     });
 
     btn_adelante3.on("click", function (event) {
-        event.preventDefault();
-        movPag.css("margin-left", "-66.6%");
-        num.eq(cont - 1).addClass('active');
-        check_progreso.eq(cont - 1).addClass('active');
-        cont += 1;
+        if ($('#telefono').val() !== "" && $('#email').val() !== "") {
+            event.preventDefault();
+            movPag.css("margin-left", "-66.6%");
+            num.eq(cont - 1).addClass('active');
+            check_progreso.eq(cont - 1).addClass('active');
+            cont += 1;
+        }
     });
 
     btn_atras2.on("click", function (event) {
@@ -48,6 +54,7 @@ $(document).ready(function () {
     });
 
     // ----------------------------------------------
+    // Exportacion a PDF
 
     $("#btnExportarPDF").click(function () {
         // Obtener los valores de los inputs a mostrar en el PDF"
@@ -70,4 +77,5 @@ $(document).ready(function () {
         pdf.save("formulario.pdf");
     });
 
+    //-------------------------------------------------
 });
